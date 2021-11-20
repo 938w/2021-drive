@@ -43,11 +43,11 @@ void pre_auton(void) {
   vexcodeInit();
   MobileLift.setVelocity(100,percent);
   MobileLift.setMaxTorque(100,percent);
- FrontLeft.setVelocity(100,percent);
- FrontRight.setVelocity(100,percent);
- BackLeft.setVelocity(100,percent);
- BackRight.setVelocity(100,percent);
- Intake.setVelocity(100,percent);
+  FrontLeft.setVelocity(100,percent);
+  FrontRight.setVelocity(100,percent);
+  BackLeft.setVelocity(100,percent);
+  BackRight.setVelocity(100,percent);
+  Intake.setVelocity(100,percent);\
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 }
