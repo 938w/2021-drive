@@ -21,7 +21,7 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
-
+#include "functions.h"
 
 using namespace vex;
 
@@ -93,11 +93,6 @@ void pre_auton(void) {
   BackLeft.stop();
   BackRight.stop();
   
-  
-
-
-
-
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 }
