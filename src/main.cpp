@@ -39,17 +39,51 @@ competition Competition;
 /*  not every time that the robot is disabled.                               */
 /*---------------------------------------------------------------------------*/
 
-void pre_auton(void) {
-  // Initializing Robot Configuration. DO NOT REMOVE!
-  vexcodeInit();
-  MobileLift.setVelocity(100,percent);
+void setVelocity() {
+ MobileLift.setVelocity(100,percent);
   MobileLift.setMaxTorque(100,percent);
   FrontLeft.setVelocity(100,percent);
   FrontRight.setVelocity(100,percent);
   BackLeft.setVelocity(100,percent);
   BackRight.setVelocity(100,percent);
   Intake.setVelocity(100,percent);
-  
+}
+ 
+void DriveTrainFunctions(int y, int x) {
+  if (int y = 1) {
+    FrontLeft.spin(forward);
+    FrontRight.spin(forward);
+    BackRight.spin(forward);
+    BackLeft.spin(forward);
+    wait (x, sec);
+  }
+  if (int y = 2) {
+    FrontRight.spin(reverse);
+    FrontLeft.spin(reverse);
+    BackLeft.spin(reverse);
+    BackRight.spin(reverse);
+    wait (x, sec);
+  }
+  if (int y = 3) {
+    FrontRight.spin(forward);
+    FrontLeft.spin(reverse);
+    BackRight.spin(forward);
+    BackLeft.spin(reverse);
+    wait (x, sec);
+  }
+  if (int y = 3) {
+    FrontRight.spin(reverse);
+    FrontLeft.spin(forward);
+    BackRight.spin(reverse);
+    BackLeft.spin(forward);
+  }
+}
+
+void pre_auton(void) {
+  // Initializing Robot Configuration. DO NOT REMOVE!
+  vexcodeInit();
+  // Motor Velocity Percent 
+  setVelocity();
   //Move forward so won't crash into wall when turning
   FrontLeft.spin(forward);
   FrontRight.spin(forward);
