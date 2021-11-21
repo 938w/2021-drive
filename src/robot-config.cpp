@@ -15,6 +15,7 @@ motor BackRight = motor(PORT4, ratio18_1, true);
 motor MobileLift = motor(PORT5, ratio18_1, false);
 motor Intake = motor(PORT6, ratio18_1, false);
 controller Controller1 = controller(primary);
+motor MobileLift2 = motor(PORT7, ratio18_1, true);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

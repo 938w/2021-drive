@@ -17,6 +17,7 @@
 // MobileLift           motor         5               
 // Intake               motor         6               
 // Controller1          controller                    
+// MobileLift2          motor         7               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -87,14 +88,17 @@ void usercontrol(void) {
     //Mobile Lift Coding
  if (Controller1.ButtonL1.pressing()) {
  MobileLift.spin(forward);
+ MobileLift2.spin(forward);
  }
  
  if (Controller1.ButtonL2.pressing()) {
  MobileLift.spin(reverse);
+ MobileLift2.spin(reverse);
  }
  
  if (!Controller1.ButtonL1.pressing() && !Controller1.ButtonL2.pressing()) {
  MobileLift.stop();
+ MobileLift2.stop();
  }
  
  if (!Controller1.ButtonR1.pressing()) {
