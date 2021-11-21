@@ -39,14 +39,14 @@ competition Competition;
 /*  not every time that the robot is disabled.                               */
 /*---------------------------------------------------------------------------*/
 
-void setVelocity() {
- MobileLift.setVelocity(100,percent);
-  MobileLift.setMaxTorque(100,percent);
-  FrontLeft.setVelocity(100,percent);
-  FrontRight.setVelocity(100,percent);
-  BackLeft.setVelocity(100,percent);
-  BackRight.setVelocity(100,percent);
-  Intake.setVelocity(100,percent);
+void setVelocity(int x) {
+ MobileLift.setVelocity(x,percent);
+  MobileLift.setMaxTorque(x,percent);
+  FrontLeft.setVelocity(x,percent);
+  FrontRight.setVelocity(x,percent);
+  BackLeft.setVelocity(x,percent);
+  BackRight.setVelocity(x,percent);
+  Intake.setVelocity(x,percent);
 }
  
 void DriveTrainFunctions(int y, double x) {
@@ -112,7 +112,7 @@ void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
   // Motor Velocity Percent 
-  setVelocity();
+  setVelocity(100);
   //Move forward so won't crash into wall when turning
   DriveTrainFunctions(1, 0.5);
   Stop(1);
