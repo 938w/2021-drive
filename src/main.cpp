@@ -120,7 +120,7 @@ void pre_auton(void) {
   DriveTrainFunctions(1, 1);
   Stop(1);
   //Lower lift into position
-  MobileLiftFunctions (1,1.5);
+  MobileLiftFunctions (2,1.5);
   Stop (2);
   //Pick up goal and go up on ramp 
   MobileLift.spin(forward);
