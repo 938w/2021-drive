@@ -22,6 +22,7 @@
 
 #include "vex.h"
 
+
 using namespace vex;
 
 // A global instance of competition
@@ -49,8 +50,30 @@ void pre_auton(void) {
   BackLeft.setVelocity(100,percent);
   BackRight.setVelocity(100,percent);
   Intake.setVelocity(100,percent);
-
   
+  //Move forward so won't crash into wall when turning
+  FrontLeft.spin(forward);
+  FrontRight.spin(forward);
+  BackLeft.spin(forward);
+  BackRight.spin(forward);
+  wait (0.5, sec);
+  FrontLeft.stop();
+  FrontRight.stop();
+  BackLeft.stop();
+  BackRight.stop();
+  //Turn to face goal and ramp
+  FrontLeft.spin(forward);
+  FrontRight.spin(forward);
+  BackRight.spin(reverse);
+  BackLeft.spin(reverse);
+  wait (1, sec);
+  //Lower lift into position
+  MobileLift.spin(forward);
+  MobileLift2.spin(forward);
+  wait (1.5, sec);
+
+
+
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
 }
