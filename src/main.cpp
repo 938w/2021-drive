@@ -72,12 +72,29 @@ void pre_auton(void) {
   BackLeft.stop();
   BackRight.stop();
   //Lower lift into position
-  MobileLift.spin(forward);
-  MobileLift2.spin(forward);
+  MobileLift.spin(reverse);
+  MobileLift2.spin(reverse);
   wait (1.5, sec);
   MobileLift.stop();
   MobileLift2.stop();
-  //
+  //Pick up goal and go up on ramp 
+  MobileLift.spin(forward);
+  MobileLift2.spin(forward);
+  FrontLeft.spin(forward);
+  FrontRight.spin(forward);
+  BackLeft.spin(forward);
+  BackRight.spin(forward);
+  wait (0.2, sec);
+  MobileLift.stop();
+  MobileLift2.stop();
+  wait (0.5, sec);
+  FrontLeft.stop();
+  FrontRight.stop();
+  BackLeft.stop();
+  BackRight.stop();
+  
+  
+
 
 
 
