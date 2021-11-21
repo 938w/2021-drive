@@ -1,3 +1,51 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         7               
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
