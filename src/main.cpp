@@ -67,10 +67,17 @@ void pre_auton(void) {
   BackRight.spin(reverse);
   BackLeft.spin(reverse);
   wait (1, sec);
+  FrontLeft.stop();
+  FrontRight.stop();
+  BackLeft.stop();
+  BackRight.stop();
   //Lower lift into position
   MobileLift.spin(forward);
   MobileLift2.spin(forward);
   wait (1.5, sec);
+  MobileLift.stop();
+  MobileLift2.stop();
+  //
 
 
 
