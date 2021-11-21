@@ -49,7 +49,7 @@ void setVelocity() {
   Intake.setVelocity(100,percent);
 }
  
-void DriveTrainFunctions(int y, int x) {
+void DriveTrainFunctions(int y, double x) {
   if (int y = 1) {
     FrontLeft.spin(forward);
     FrontRight.spin(forward);
@@ -76,6 +76,35 @@ void DriveTrainFunctions(int y, int x) {
     FrontLeft.spin(forward);
     BackRight.spin(reverse);
     BackLeft.spin(forward);
+    wait (x, sec);
+  }
+}
+
+void Stop (int y) {
+  if (int y = 1) {
+  FrontLeft.stop();
+  FrontRight.stop();
+  BackRight.stop();
+  BackLeft.stop();
+  }
+  if (int y = 2) {
+    MobileLift.stop();
+    MobileLift2.stop();
+  }
+  if (int y = 3) {
+    Intake.stop();
+  }
+}
+void MobileLiftFunctions (int y, double x) {
+  if (int y = 1) {
+    MobileLift.spin(forward);
+    MobileLift2.spin(forward);
+    wait (x, sec);
+  }
+  if (int y = 2) {
+    MobileLift.spin(reverse);
+    MobileLift2.spin(reverse);
+    wait (x, sec);
   }
 }
 
@@ -85,31 +114,14 @@ void pre_auton(void) {
   // Motor Velocity Percent 
   setVelocity();
   //Move forward so won't crash into wall when turning
-  FrontLeft.spin(forward);
-  FrontRight.spin(forward);
-  BackLeft.spin(forward);
-  BackRight.spin(forward);
-  wait (0.5, sec);
-  FrontLeft.stop();
-  FrontRight.stop();
-  BackLeft.stop();
-  BackRight.stop();
+  DriveTrainFunctions(1, 0.5);
+  Stop(1);
   //Turn to face goal and ramp
-  FrontLeft.spin(forward);
-  FrontRight.spin(forward);
-  BackRight.spin(reverse);
-  BackLeft.spin(reverse);
-  wait (1, sec);
-  FrontLeft.stop();
-  FrontRight.stop();
-  BackLeft.stop();
-  BackRight.stop();
+  DriveTrainFunctions(1, 1);
+  Stop(1);
   //Lower lift into position
-  MobileLift.spin(reverse);
-  MobileLift2.spin(reverse);
-  wait (1.5, sec);
-  MobileLift.stop();
-  MobileLift2.stop();
+  MobileLiftFunctions (1,1.5);
+  Stop (2);
   //Pick up goal and go up on ramp 
   MobileLift.spin(forward);
   MobileLift2.spin(forward);
