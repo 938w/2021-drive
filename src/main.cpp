@@ -8,6 +8,31 @@
 // MobileLift           motor         5               
 // Intake               motor         6               
 // Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
 // MobileLift2          motor         7               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 // ---- START VEXCODE CONFIGURED DEVICES ----
@@ -140,13 +165,19 @@ void setVelocity(int x) {
   MobileLift.setMaxTorque(x,percent);
   MobileLift2.setVelocity(x,percent);
   MobileLift2.setMaxTorque(x,percent);
+  BackLift.setVelocity(x,percent);
+  BackLift.setMaxTorque(x,percent);
   FrontLeft.setVelocity(x,percent);
   FrontRight.setVelocity(x,percent);
   BackLeft.setVelocity(x,percent);
   BackRight.setVelocity(x,percent);
   Intake.setVelocity(x,percent);
+  MobileLift.setPosition(0, degrees);
+  MobileLift2.setPosition(0,degrees);
+  MobileLift.setPosition(0, turns);
+  MobileLift2.setPosition(0,turns);
 }
- 
+
 void DriveTrainFunctions(int y, double x) {
   if (int y = 1) {
     FrontLeft.spin(forward);
@@ -286,23 +317,41 @@ void usercontrol(void) {
  if (!Controller1.ButtonL1.pressing() && !Controller1.ButtonL2.pressing()) {
  MobileLift.stop();
  MobileLift2.stop();
+  if (MobileLift.position(degrees) > -300) {
+    MobileLift.setStopping(hold);
+    MobileLift2.setStopping(hold);
+  }
+ }
+ Brain.Screen.clearScreen();
+ Brain.Screen.print(MobileLift.position(degrees)+100);
+ if (Controller1.ButtonR1.pressing()) {
+ BackLift.spin(forward);
  }
  
- if (!Controller1.ButtonR1.pressing()) {
- Intake.spin(forward);
- }
- 
- if (!Controller1.ButtonR2.pressing()) {
- Intake.spin(reverse); 
+ if (Controller1.ButtonR2.pressing()) {
+ BackLift.spin(reverse);
  }
  
  if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing()) {
+BackLift.stop();
+BackLift.setStopping(hold);
+ }
+
+ if (!Controller1.ButtonUp.pressing()) {
+ Intake.spin(forward);
+ }
+ 
+ if (!Controller1.ButtonDown.pressing()) {
+ Intake.spin(reverse); 
+ }
+ 
+ if (!Controller1.ButtonUp.pressing() && !Controller1.ButtonDown.pressing()) {
  Intake.stop();
  }
-    FrontLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
-    FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
-    BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
-    BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
+    FrontLeft.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis4.position(), vex::velocityUnits::pct);
+    FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis4.position(), vex::velocityUnits::pct);
+    BackLeft.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis4.position(), vex::velocityUnits::pct);
+    BackRight.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis4.position(), vex::velocityUnits::pct);
     // ........................................................................
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
