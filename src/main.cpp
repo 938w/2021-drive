@@ -325,11 +325,11 @@ void usercontrol(void) {
  Brain.Screen.clearScreen();
  Brain.Screen.print(MobileLift.position(degrees)+100);
  if (Controller1.ButtonR1.pressing()) {
- BackLift.spin(forward);
+ BackLift.spin(reverse);
  }
  
  if (Controller1.ButtonR2.pressing()) {
- BackLift.spin(reverse);
+ BackLift.spin(forward);
  }
  
  if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing()) {
@@ -348,10 +348,10 @@ BackLift.setStopping(hold);
  if (!Controller1.ButtonUp.pressing() && !Controller1.ButtonDown.pressing()) {
  Intake.stop();
  }
-    FrontLeft.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis4.position(), vex::velocityUnits::pct);
-    FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis4.position(), vex::velocityUnits::pct);
-    BackLeft.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis4.position(), vex::velocityUnits::pct);
-    BackRight.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis4.position(), vex::velocityUnits::pct);
+    FrontLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
+    FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
+    BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
+    BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
     // ........................................................................
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
