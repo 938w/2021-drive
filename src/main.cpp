@@ -240,6 +240,32 @@ void MobileLiftFunctions (int y, double x) {
 void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
+  // Motor Velocity Percent 
+  setVelocity(100);
+  //Move forward so won't crash into wall when turning
+  DriveTrainFunctions(1, 0.5);
+  Stop(1);
+  //Turn to face goal and ramp
+  DriveTrainFunctions(1, 1);
+  Stop(1);
+  //Lower lift into position
+  MobileLiftFunctions (2,1.5);
+  Stop (2);
+  //Pick up goal and go up on ramp 
+  MobileLift.spin(forward);
+  MobileLift2.spin(forward);
+  FrontLeft.spin(forward);
+  FrontRight.spin(forward);
+  BackLeft.spin(forward);
+  BackRight.spin(forward);
+  wait (0.2, sec);
+  MobileLift.stop();
+  MobileLift2.stop();
+  wait (0.5, sec);
+  FrontLeft.stop();
+  FrontRight.stop();
+  BackLeft.stop();
+  BackRight.stop();
   
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
