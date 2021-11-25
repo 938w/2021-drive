@@ -252,7 +252,7 @@ void pre_auton(void) {
   MobileLiftFunctions (2,1.5);
   Stop (2);
   //Pick up goal and go up on ramp 
-  MobileLift.spin(forward);
+  /*MobileLift.spin(forward);
   MobileLift2.spin(forward);
   FrontLeft.spin(forward);
   FrontRight.spin(forward);
@@ -265,7 +265,7 @@ void pre_auton(void) {
   FrontLeft.stop();
   FrontRight.stop();
   BackLeft.stop();
-  BackRight.stop();
+  BackRight.stop();*/
   
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
@@ -352,10 +352,7 @@ BackLift.setStopping(hold);
     FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
     BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
     BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
-    // ........................................................................
-    // Insert user code here. This is where you use the joystick values to
-    // update your motors, etc.
-    // ........................................................................
+    
 
     wait(10, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
