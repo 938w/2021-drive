@@ -208,6 +208,12 @@ void DriveTrainFunctions(int y, double x) {
     wait (x, sec);
   }
 }
+void thewheels(std::string dir, double x) {
+  if dir =
+}
+
+
+
 
 void Stop (int y) {
   if (int y = 1) {
