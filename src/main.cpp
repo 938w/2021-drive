@@ -296,7 +296,17 @@ void autonomous(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
+int drivetype = 1;
 
+void changedrive () {
+  if (drivetype == 1) {
+    drivetype = 2;
+  }
+    
+  if (drivetype == 2) {
+    drivetype = 1;
+  }
+}
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
@@ -348,10 +358,19 @@ BackLift.setStopping(hold);
  if (!Controller1.ButtonUp.pressing() && !Controller1.ButtonDown.pressing()) {
  Intake.stop();
  }
-    FrontLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
-    FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
-    BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
-    BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
+Controller1.ButtonY.pressed(changedrive);
+if (drivetype == 1) {
+FrontLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
+FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
+BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
+BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
+}
+if (drivetype == 2) {
+FrontLeft.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis1.position(), vex::velocityUnits::pct);
+FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis1.position(), vex::velocityUnits::pct);
+BackLeft.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis1.position(), vex::velocityUnits::pct);
+BackRight.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis1.position(), vex::velocityUnits::pct);
+}
     
 
     wait(10, msec); // Sleep the task for a short amount of time to
