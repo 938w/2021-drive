@@ -180,11 +180,7 @@ void setVelocity(int x) {
 
 void DriveTrainFunctions(int y, double x) {
   if (int y = 1) {
-    FrontLeft.spin(forward);
-    FrontRight.spin(forward);
-    BackRight.spin(forward);
-    BackLeft.spin(forward);
-    wait (x, sec);
+    
   }
   if (int y = 2) {
     FrontRight.spin(reverse);
@@ -209,7 +205,35 @@ void DriveTrainFunctions(int y, double x) {
   }
 }
 void thewheels(std::string dir, double x) {
-  if dir =
+  if (dir == "fwd") {
+    FrontLeft.spin(forward);
+    FrontRight.spin(forward);
+    BackRight.spin(forward);
+    BackLeft.spin(forward);
+    wait (x, sec);
+  }
+  if (dir == "rev") {
+    FrontRight.spin(reverse);
+    FrontLeft.spin(reverse);
+    BackLeft.spin(reverse);
+    BackRight.spin(reverse);
+    wait (x, sec);
+
+  }
+  if (dir == "rht") {
+    FrontRight.spin(reverse);
+    FrontLeft.spin(forward);
+    BackRight.spin(reverse);
+    BackLeft.spin(forward);
+    wait (x, sec);
+  }
+  if (dir == "lft") {
+    FrontRight.spin(forward);
+    FrontLeft.spin(reverse);
+    BackRight.spin(forward);
+    BackLeft.spin(reverse);
+    wait (x, sec);
+  }
 }
 
 
