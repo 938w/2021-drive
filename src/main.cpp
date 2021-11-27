@@ -283,10 +283,27 @@ void pre_auton(void) {
   // Motor Velocity Percent 
   setVelocity(100);
   //Move forward towards mobile lift (leave space for lift to deploy)
-  drivefunctions("fwd", 0.8);
+  drivefunctions("fwd", 0.5);
   //Deploy front lift
-  FrontLift("down", 0.5); 
+  FrontLift("down", 0.7); 
   //Move forward
+  drivefunctions("fwd", 0.3);
+  /*
+  //Pick up goal
+  FrontLift("up", 0.3);
+  //Backup to home zone
+  drivefunctions("rev", 0.5);
+  //Turn left
+  drivefunctions("lft", 0.7);
+  //Move foward a little
+  drivefunctions ("fwd", 0.3);
+  //Lower goal
+  FrontLift("down", 0.3);
+  //Back Up
+  drivefunctions ("rev", 0.3);
+  */
+
+
   
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
