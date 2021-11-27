@@ -239,6 +239,28 @@ void FrontLift (std::string dir, double x) {
     wait (x, sec);
   }
 }
+/*
+void TestFrontLift (std::string dir, double x) {
+  if (dir == "up") {
+      MobileLift.spinFor(forward, x*5, degrees);
+      MobileLift2.spinFor(forward, x*5, degrees);
+  }
+  if (dir == "down") {
+    MobileLift.spinFor(reverse, x*5, degrees);
+    MobileLift2.spinFor(reverse, x*5, degrees);
+  }
+}
+void TestBakLift (std::string dir, double x) {
+  if (dir == "up") {
+    MobileLift.spinFor(reverse, x*5, degrees);
+    MobileLift2.spinFor(reverse, x*5, degrees);
+  }
+  if (dir == "down") {
+    MobileLift.spinFor(forward, x*5, degrees);
+    MobileLift2.spinFor(forward, x*5, degrees);
+  }
+}
+*/
 void BakLift (std::string dir, double x) {
   if (dir == "up") {
     BackLift.spin(reverse);
@@ -260,32 +282,11 @@ void pre_auton(void) {
   //-------------------------------------------------------------------------
   // Motor Velocity Percent 
   setVelocity(100);
-  //Move forward so won't crash into wall when turning
-  drivefunctions("fwd", 0.5);
-  Stop("drivetrain");
-  //Turn to face goal and ramp
-  drivefunctions("rht", 1);
-  Stop("drivetrain");
-  //Lower lift into position
-  FrontLift("down",1.5);
-  Stop("frontlift");
-  /*//Move into Goal
-  drivefunctions("fwd", 0.5);
-  //Pick up goal and go up on ramp 
-  MobileLift.spin(forward);
-  MobileLift2.spin(forward);
-  FrontLeft.spin(forward);
-  FrontRight.spin(forward);
-  BackLeft.spin(forward);
-  BackRight.spin(forward);
-  wait (0.2, sec);
-  MobileLift.stop();
-  MobileLift2.stop();
-  wait (0.5, sec);
-  FrontLeft.stop();
-  FrontRight.stop();
-  BackLeft.stop();
-  BackRight.stop();*/
+  //Move forward towards mobile lift (leave space for lift to deploy)
+  drivefunctions("fwd", 0.8);
+  //Deploy front lift
+  FrontLift("down", 0.5); 
+  //Move forward
   
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
@@ -384,12 +385,6 @@ FrontLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::veloc
 FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
 BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
 BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
-}
-if (drivetype == 2) {
-FrontLeft.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis1.position(), vex::velocityUnits::pct);
-FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis1.position(), vex::velocityUnits::pct);
-BackLeft.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis1.position(), vex::velocityUnits::pct);
-BackRight.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis1.position(), vex::velocityUnits::pct);
 }
     
 
