@@ -161,7 +161,7 @@ competition Competition;
 /*---------------------------------------------------------------------------*/
 
 void setVelocity(int x) {
- MobileLift.setVelocity(x,percent);
+  MobileLift.setVelocity(x,percent);
   MobileLift.setMaxTorque(x,percent);
   MobileLift2.setVelocity(x,percent);
   MobileLift2.setMaxTorque(x,percent);
@@ -177,34 +177,7 @@ void setVelocity(int x) {
   MobileLift.setPosition(0, turns);
   MobileLift2.setPosition(0,turns);
 }
-
-void DriveTrainFunctions(int y, double x) {
-  if (int y = 1) {
-    
-  }
-  if (int y = 2) {
-    FrontRight.spin(reverse);
-    FrontLeft.spin(reverse);
-    BackLeft.spin(reverse);
-    BackRight.spin(reverse);
-    wait (x, sec);
-  }
-  if (int y = 3) {
-    FrontRight.spin(forward);
-    FrontLeft.spin(reverse);
-    BackRight.spin(forward);
-    BackLeft.spin(reverse);
-    wait (x, sec);
-  }
-  if (int y = 3) {
-    FrontRight.spin(reverse);
-    FrontLeft.spin(forward);
-    BackRight.spin(reverse);
-    BackLeft.spin(forward);
-    wait (x, sec);
-  }
-}
-void thewheels(std::string dir, double x) {
+void drivefunctions(std::string dir, double x) {
   if (dir == "fwd") {
     FrontLeft.spin(forward);
     FrontRight.spin(forward);
@@ -235,54 +208,71 @@ void thewheels(std::string dir, double x) {
     wait (x, sec);
   }
 }
-
-
-
-
-void Stop (int y) {
-  if (int y = 1) {
+void Stop (std::string option) {
+  if (option == "drivetrain") {
   FrontLeft.stop();
   FrontRight.stop();
   BackRight.stop();
   BackLeft.stop();
   }
-  if (int y = 2) {
+  if (option == "frontlift") {
     MobileLift.stop();
     MobileLift2.stop();
   }
-  if (int y = 3) {
+  if (option == "backlift") {
+    BackLift.stop();
+    BackLift.setStopping(hold);
+  }
+  if (option == "intake") {
     Intake.stop();
   }
 }
-void MobileLiftFunctions (int y, double x) {
-  if (int y = 1) {
+void FrontLift (std::string dir, double x) {
+  if (dir == "up") {
     MobileLift.spin(forward);
     MobileLift2.spin(forward);
     wait (x, sec);
   }
-  if (int y = 2) {
+  if (dir == "down") {
     MobileLift.spin(reverse);
     MobileLift2.spin(reverse);
     wait (x, sec);
   }
 }
-
+void BakLift (std::string dir, double x) {
+  if (dir == "up") {
+    BackLift.spin(reverse);
+    wait (x, sec);
+  }
+  if (dir == "down") {
+    BackLift.spin(forward);
+    wait (x, sec);
+  }
+}
 void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
+  //-------------------------------------------------------------------------
+  // DRIVE FUNCTIONS : drivefunctions(direction, waittime) [fwd, rev, lft, rht]
+  // STOP FUNCTIONS : Stop(option); [drivetrain, frontlift, backlift, intake]
+  // FRONT LIFT FUNCTIONS : FrontLift(dir, waittime) [up, down]
+  // BAK LIFT FUNCTIONS : BakLift(dir, waittime) [up, down]
+  //-------------------------------------------------------------------------
   // Motor Velocity Percent 
   setVelocity(100);
   //Move forward so won't crash into wall when turning
-  DriveTrainFunctions(1, 0.5);
-  Stop(1);
+  drivefunctions("fwd", 0.5);
+  Stop("drivetrain");
   //Turn to face goal and ramp
-  DriveTrainFunctions(1, 1);
-  Stop(1);
+  drivefunctions("rht", 1);
+  Stop("drivetrain");
   //Lower lift into position
-  MobileLiftFunctions (2,1.5);
-  Stop (2);
+  FrontLift("down",1.5);
+  Stop("frontlift");
+  /*//Move into Goal
+  drivefunctions("fwd", 0.5);
   //Pick up goal and go up on ramp 
-  /*MobileLift.spin(forward);
+  MobileLift.spin(forward);
   MobileLift2.spin(forward);
   FrontLeft.spin(forward);
   FrontRight.spin(forward);
