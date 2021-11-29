@@ -344,7 +344,8 @@ void autonomous(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
-
+int buty = 1;
+int lastpressed = 1;
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
@@ -396,20 +397,32 @@ BackLift.setStopping(hold);
  if (!Controller1.ButtonUp.pressing() && !Controller1.ButtonDown.pressing()) {
  Intake.stop();
  }
-Controller1.ButtonY.pressed(changedrive);
-if (drivetype == 1) {
+ if (Controller1.ButtonY.pressing()){
+   if (buty == 1 && lastpressed == 1) {
+     buty = 2;
+     lastpressed = 2;
+   }
+   
+   if (lastpressed == 3 && buty == 2) {
+     buty = 1;
+     lastpressed = 2;
+   }
+}
+if (!Controller1.ButtonY.pressing()) {
+    if (lastpressed == 2 && buty == 2) {
+      lastpressed = 3;
+    }
+    if (lastpressed == 2 && buty == 1) {
+      lastpressed = 1;
+    }
+}
   FrontLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
   FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
   BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
   BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
-}
-if (drivetype == 2) {
-  FrontLeft.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis1.position(), vex::velocityUnits::pct);
-  FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis1.position(), vex::velocityUnits::pct);
-  BackLeft.spin(vex::directionType::rev, Controller1.Axis2.position()-Controller1.Axis1.position(), vex::velocityUnits::pct);
-  BackRight.spin(vex::directionType::rev, Controller1.Axis2.position()+Controller1.Axis1.position(), vex::velocityUnits::pct);
-}
-if ((Controller1.Axis2.position() < 7) && (Controller1.Axis3.position() < 7) && (Controller1.Axis2.position() > -7) && (Controller1.Axis3.position() > -7)) {
+
+
+if ((Controller1.Axis2.position() < 7) && (Controller1.Axis3.position() < 7) && (Controller1.Axis2.position() > -7) && (Controller1.Axis3.position() > -7) && (buty == 2)) {
   Stop("drivetrain");
   FrontRight.setStopping(hold); 
   FrontLeft.setStopping(hold);
