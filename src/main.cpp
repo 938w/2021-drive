@@ -1,227 +1,4 @@
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// BackLift             motor         8               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         21              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         7               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         7               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         7               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         7               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         7               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         7               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         7               
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FrontLeft            motor         1               
-// FrontRight           motor         2               
-// BackLeft             motor         3               
-// BackRight            motor         4               
-// MobileLift           motor         5               
-// Intake               motor         6               
-// Controller1          controller                    
-// MobileLift2          motor         7               
+           
 // ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
@@ -421,8 +198,6 @@ void autonomous(void) {
   FrontRight.setVelocity(50, percent);
   BackRight.setVelocity(50, percent);
   BackLeft.setVelocity(50, percent);
-  MobileLift.setVelocity(100, percent);
-  MobileLift2.setVelocity(100, percent);
   //Deploy front lift
   FrontLift("down", 0.25); 
   //Move forward
@@ -458,36 +233,36 @@ void autonomous(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
-int buty = 1;
-int lastpressed = 1;
+bool state = false;
+bool last = false;
+
 void usercontrol(void) {
   setVelocity(100);
   // User control code here, inside the loop
-  while (1) {
+  while (true) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
     //Mobile Lift Coding
- if (Controller1.ButtonL1.pressing()) {
- MobileLift.spin(forward);
- MobileLift2.spin(forward);
- }
+  if (Controller1.ButtonL1.pressing()) {
+  MobileLift.spin(forward);
+  MobileLift2.spin(forward);
+  }
  
- if (Controller1.ButtonL2.pressing()) {
- MobileLift.spin(reverse);
- MobileLift2.spin(reverse);
- }
+  if (Controller1.ButtonL2.pressing()) {
+  MobileLift.spin(reverse);
+  MobileLift2.spin(reverse);
+  }
  
- if (!Controller1.ButtonL1.pressing() && !Controller1.ButtonL2.pressing()) {
- MobileLift.stop();
- MobileLift2.stop();
+  if (!Controller1.ButtonL1.pressing() && !Controller1.ButtonL2.pressing()) {
+  MobileLift.stop();
+  MobileLift2.stop();
 
-    MobileLift.setStopping(hold);
-    MobileLift2.setStopping(hold);
+  MobileLift.setStopping(hold);
+  MobileLift2.setStopping(hold);
 
- }
- Brain.Screen.clearScreen();
- Brain.Screen.print(MobileLift.position(degrees)+100);
+  }
+ 
  if (Controller1.ButtonR1.pressing()) {
  BackLift.spin(reverse);
  }
@@ -497,8 +272,8 @@ void usercontrol(void) {
  }
  
  if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing()) {
-BackLift.stop();
-BackLift.setStopping(hold);
+  BackLift.stop();
+  BackLift.setStopping(hold);
  }
 
  if (!Controller1.ButtonUp.pressing()) {
@@ -508,46 +283,41 @@ BackLift.setStopping(hold);
  if (!Controller1.ButtonDown.pressing()) {
  Intake.spin(reverse); 
  }
- 
  if (!Controller1.ButtonUp.pressing() && !Controller1.ButtonDown.pressing()) {
  Intake.stop();
  }
- if (Controller1.ButtonY.pressing()){
-   if (buty == 1 && lastpressed == 1) {
-     buty = 2;
-     lastpressed = 2;
-   }
-   
-   if (lastpressed == 3 && buty == 2) {
-     buty = 1;
-     lastpressed = 2;
-   }
-}
-if (!Controller1.ButtonY.pressing()) {
-    if (lastpressed == 2 && buty == 2) {
-      lastpressed = 3;
-    }
-    if (lastpressed == 2 && buty == 1) {
-      lastpressed = 1;
-    }
-}
+ 
   FrontLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
   FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
   BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
   BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
+   if(Controller1.ButtonY.pressing() && !last) {
+      state = !state;
+      last = true;
+   } else if(!Controller1.ButtonY.pressing()) {
+      last = false;
+   }
 
-
-if ((Controller1.Axis2.position() < 7) && (Controller1.Axis3.position() < 7) && (Controller1.Axis2.position() > -7) && (Controller1.Axis3.position() > -7) && (buty == 2)) {
-  Stop("drivetrain");
-  FrontRight.setStopping(hold); 
-  FrontLeft.setStopping(hold);
-  BackRight.setStopping(hold);
-  BackLeft.setStopping(hold);
-}
+   if(state) {
+    if ((Controller1.Axis2.position() < 7) && (Controller1.Axis3.position() < 7) && (Controller1.Axis2.position() > -7) && (Controller1.Axis3.position() > -7)) {
+      Stop("drivetrain");
+      FrontRight.setStopping(hold); 
+      FrontLeft.setStopping(hold);
+      BackRight.setStopping(hold);
+      BackLeft.setStopping(hold);
+    }
+   } else {
+      if ((Controller1.Axis2.position() < 7) && (Controller1.Axis3.position() < 7) && (Controller1.Axis2.position() > -7) && (Controller1.Axis3.position() > -7)) {
+      Stop("drivetrain");
+      FrontRight.setStopping(coast); 
+      FrontLeft.setStopping(coast);
+      BackRight.setStopping(coast);
+      BackLeft.setStopping(coast);
+      }
+   }
 
     wait(10, msec); // Sleep the task for a short amount of time to 
-                    // prevent wasted resources.
-  }
+  }                  // prevent wasted resources.
 }
 
 //
