@@ -74,6 +74,58 @@
 // Intake               motor         6               
 // Controller1          controller                    
 // MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
@@ -230,14 +282,14 @@ void setVelocity(int x) {
   MobileLift2.setPosition(0,turns);
 }
 void drivefunctions(std::string dir, double x) {
-  if (dir == "fwd") {
+  if (dir == "rev") {
     FrontLeft.spin(forward);
     FrontRight.spin(forward);
     BackRight.spin(forward);
     BackLeft.spin(forward);
     wait (x, sec);
   }
-  if (dir == "rev") {
+  if (dir == "fwd") {
     FrontRight.spin(reverse);
     FrontLeft.spin(reverse);
     BackLeft.spin(reverse);
@@ -367,7 +419,6 @@ void autonomous(void) {
   FrontRight.setVelocity(30, percent);
   BackRight.setVelocity(30, percent);
   BackLeft.setVelocity(30, percent);
-  
   //Deploy front lift
   FrontLift("down", 0.7); 
   //Move forward
