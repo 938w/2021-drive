@@ -420,7 +420,7 @@ void autonomous(void) {
   BackRight.setVelocity(30, percent);
   BackLeft.setVelocity(30, percent);
   //Deploy front lift
-  FrontLift("down", 5.5); 
+  FrontLift("down", 4); 
   //Move forward
   drivefunctions("fwd", 0.3);
   /*
