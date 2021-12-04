@@ -199,15 +199,20 @@ void autonomous(void) {
   BackRight.setVelocity(50, percent);
   BackLeft.setVelocity(50, percent);
   //Deploy front lift
-  FrontLift("down", 0.25); 
+  FrontLift("down", 2);
+  Stop("frontlift");
+  FrontLift("up", 0.06);
+  Stop("frontlift");
   //Move forward
-  drivefunctions("fwd", 2.4);
+  drivefunctions("fwd", 2.3);
   MobileLift.setVelocity(100, percent);
   MobileLift2.setVelocity(100, percent);
   //Stop DriveTrain
   Stop("drivetrain");
   //Pick up goal
-  FrontLift("up", 0.2);
+  FrontLift("up", 0.7);
+  Stop("frontlift");
+  
   //Backup to home zone
   drivefunctions("rev", 1.3);
   Stop("drivetrain");
@@ -215,7 +220,8 @@ void autonomous(void) {
   drivefunctions("lft", 1);
   Stop("drivetrain");
   //Lower goal
-  FrontLift("down", 0.3);
+  FrontLift("down", 1);
+  Stop("frontlift");
   //Back Up
   drivefunctions ("rev", 0.6);
   Stop("drivetrain");
@@ -235,7 +241,9 @@ void autonomous(void) {
 /*---------------------------------------------------------------------------*/
 bool state = false;
 bool last = false;
+void detectY () {
 
+}
 void usercontrol(void) {
   setVelocity(100);
   // User control code here, inside the loop
@@ -243,33 +251,28 @@ void usercontrol(void) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
-    //Mobile Lift Coding
+    // Mobile Lift Coding
   if (Controller1.ButtonL1.pressing()) {
   MobileLift.spin(forward);
   MobileLift2.spin(forward);
   }
- 
   if (Controller1.ButtonL2.pressing()) {
   MobileLift.spin(reverse);
   MobileLift2.spin(reverse);
   }
- 
   if (!Controller1.ButtonL1.pressing() && !Controller1.ButtonL2.pressing()) {
   MobileLift.stop();
   MobileLift2.stop();
-
   MobileLift.setStopping(hold);
   MobileLift2.setStopping(hold);
-
   }
  
- if (Controller1.ButtonR1.pressing()) {
- BackLift.spin(reverse);
- }
- 
- if (Controller1.ButtonR2.pressing()) {
- BackLift.spin(forward);
- }
+  if (Controller1.ButtonR1.pressing()) {
+  BackLift.spin(reverse);
+  }
+  if (Controller1.ButtonR2.pressing()) {
+  BackLift.spin(forward);
+  }
  
  if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing()) {
   BackLift.stop();
@@ -319,10 +322,7 @@ void usercontrol(void) {
     wait(10, msec); // Sleep the task for a short amount of time to 
   }                  // prevent wasted resources.
 }
-
-//
 // Main will set up the competition functions and callbacks.
-//
 int main() {
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
