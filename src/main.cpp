@@ -415,28 +415,35 @@ void pre_auton(void) {
 void autonomous(void) {
   // Motor Velocity Percent 
   setVelocity(100);
-  FrontLeft.setVelocity(30,percent);
-  FrontRight.setVelocity(30, percent);
-  BackRight.setVelocity(30, percent);
-  BackLeft.setVelocity(30, percent);
+  MobileLift.setVelocity(90, percent);
+  MobileLift2.setVelocity(90, percent);
+  FrontLeft.setVelocity(50,percent);
+  FrontRight.setVelocity(50, percent);
+  BackRight.setVelocity(50, percent);
+  BackLeft.setVelocity(50, percent);
+  MobileLift.setVelocity(100, percent);
+  MobileLift2.setVelocity(100, percent);
   //Deploy front lift
-  FrontLift("down", 4); 
+  FrontLift("down", 0.25); 
   //Move forward
-  drivefunctions("fwd", 0.3);
-  /*
+  drivefunctions("fwd", 2.4);
+  MobileLift.setVelocity(100, percent);
+  MobileLift2.setVelocity(100, percent);
+  //Stop DriveTrain
+  Stop("drivetrain");
   //Pick up goal
-  FrontLift("up", 0.3);
+  FrontLift("up", 0.2);
   //Backup to home zone
-  drivefunctions("rev", 0.5);
-  //Turn left
-  drivefunctions("lft", 0.7);
-  //Move foward a little
-  drivefunctions ("fwd", 0.3);
+  drivefunctions("rev", 1.3);
+  Stop("drivetrain");
+  //Turn left 180
+  drivefunctions("lft", 1);
+  Stop("drivetrain");
   //Lower goal
   FrontLift("down", 0.3);
   //Back Up
-  drivefunctions ("rev", 0.3);
-  */
+  drivefunctions ("rev", 0.6);
+  Stop("drivetrain");
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
@@ -454,6 +461,7 @@ void autonomous(void) {
 int buty = 1;
 int lastpressed = 1;
 void usercontrol(void) {
+  setVelocity(100);
   // User control code here, inside the loop
   while (1) {
     // This is the main execution loop for the user control program.
@@ -473,10 +481,10 @@ void usercontrol(void) {
  if (!Controller1.ButtonL1.pressing() && !Controller1.ButtonL2.pressing()) {
  MobileLift.stop();
  MobileLift2.stop();
-  if (MobileLift.position(degrees) > -300) {
+
     MobileLift.setStopping(hold);
     MobileLift2.setStopping(hold);
-  }
+
  }
  Brain.Screen.clearScreen();
  Brain.Screen.print(MobileLift.position(degrees)+100);
