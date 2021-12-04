@@ -22,6 +22,58 @@
 // Intake               motor         6               
 // Controller1          controller                    
 // MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
@@ -167,10 +219,10 @@ void setVelocity(int x) {
   MobileLift2.setMaxTorque(x,percent);
   BackLift.setVelocity(x,percent);
   BackLift.setMaxTorque(x,percent);
-  FrontLeft.setVelocity(x,percent);
-  FrontRight.setVelocity(x,percent);
-  BackLeft.setVelocity(x,percent);
-  BackRight.setVelocity(x,percent);
+  //FrontLeft.setVelocity(x,percent);
+  //FrontRight.setVelocity(x,percent);
+  //BackLeft.setVelocity(x,percent);
+  //BackRight.setVelocity(x,percent);
   Intake.setVelocity(x,percent);
   MobileLift.setPosition(0, degrees);
   MobileLift2.setPosition(0,degrees);
@@ -290,28 +342,7 @@ void pre_auton(void) {
   // FRONT LIFT FUNCTIONS : FrontLift(dir, waittime) [up, down]
   // BAK LIFT FUNCTIONS : BakLift(dir, waittime) [up, down]
   //-------------------------------------------------------------------------
-  // Motor Velocity Percent 
-  setVelocity(100);
-  //Move forward towards mobile lift (leave space for lift to deploy)
-  drivefunctions("fwd", 0.5);
-  //Deploy front lift
-  FrontLift("down", 0.7); 
-  //Move forward
-  drivefunctions("fwd", 0.3);
-  /*
-  //Pick up goal
-  FrontLift("up", 0.3);
-  //Backup to home zone
-  drivefunctions("rev", 0.5);
-  //Turn left
-  drivefunctions("lft", 0.7);
-  //Move foward a little
-  drivefunctions ("fwd", 0.3);
-  //Lower goal
-  FrontLift("down", 0.3);
-  //Back Up
-  drivefunctions ("rev", 0.3);
-  */
+
 
 
   
@@ -330,6 +361,31 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
+  // Motor Velocity Percent 
+  setVelocity(100);
+  FrontLeft.setVelocity(30,percent);
+  FrontRight.setVelocity(30, percent);
+  BackRight.setVelocity(30, percent);
+  BackLeft.setVelocity(30, percent);
+  
+  //Deploy front lift
+  FrontLift("down", 0.7); 
+  //Move forward
+  drivefunctions("fwd", 0.3);
+  /*
+  //Pick up goal
+  FrontLift("up", 0.3);
+  //Backup to home zone
+  drivefunctions("rev", 0.5);
+  //Turn left
+  drivefunctions("lft", 0.7);
+  //Move foward a little
+  drivefunctions ("fwd", 0.3);
+  //Lower goal
+  FrontLift("down", 0.3);
+  //Back Up
+  drivefunctions ("rev", 0.3);
+  */
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
