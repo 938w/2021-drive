@@ -194,10 +194,10 @@ void autonomous(void) {
   setVelocity(100);
   MobileLift.setVelocity(90, percent);
   MobileLift2.setVelocity(90, percent);
-  FrontLeft.setVelocity(50,percent);
-  FrontRight.setVelocity(50, percent);
-  BackRight.setVelocity(50, percent);
-  BackLeft.setVelocity(50, percent);
+  FrontLeft.setVelocity(75,percent);
+  FrontRight.setVelocity(75, percent);
+  BackRight.setVelocity(75, percent);
+  BackLeft.setVelocity(75, percent);
   //Deploy front lift
   FrontLift("down", 2);
   Stop("frontlift");
