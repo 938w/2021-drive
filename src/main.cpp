@@ -204,7 +204,7 @@ void autonomous(void) {
   FrontLift("up", 0.06);
   Stop("frontlift");
   //Move forward
-  drivefunctions("fwd", 2.3);
+  drivefunctions("fwd", 1.73);
   MobileLift.setVelocity(100, percent);
   MobileLift2.setVelocity(100, percent);
   //Stop DriveTrain
@@ -214,7 +214,7 @@ void autonomous(void) {
   Stop("frontlift");
   
   //Backup to home zone
-  drivefunctions("rev", 1.3);
+  drivefunctions("rev", 0.98);
   Stop("drivetrain");
   //Turn left 180
   drivefunctions("lft", 1);
@@ -223,7 +223,7 @@ void autonomous(void) {
   FrontLift("down", 1);
   Stop("frontlift");
   //Back Up
-  drivefunctions ("rev", 0.6);
+  drivefunctions ("rev", 0.45);
   Stop("drivetrain");
   // ..........................................................................
   // Insert autonomous user code here.
