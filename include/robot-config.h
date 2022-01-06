@@ -12,7 +12,8 @@ extern motor Intake;
 extern controller Controller1;
 extern motor MobileLift2;
 extern motor BackLift;
-
+extern smartdrive Drivetrain;
+extern motor_group Lift;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  * 

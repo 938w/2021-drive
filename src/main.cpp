@@ -1,3 +1,17 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// Drivetrain           drivetrain    15, 16, 17, 18, 9
+// ---- END VEXCODE CONFIGURED DEVICES ----
            
 // ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
@@ -48,10 +62,10 @@ void setVelocity(int x) {
   MobileLift2.setMaxTorque(x,percent);
   BackLift.setVelocity(x,percent);
   BackLift.setMaxTorque(x,percent);
-  //FrontLeft.setVelocity(x,percent);
-  //FrontRight.setVelocity(x,percent);
-  //BackLeft.setVelocity(x,percent);
-  //BackRight.setVelocity(x,percent);
+  FrontLeft.setVelocity(x,percent);
+  FrontRight.setVelocity(x,percent);
+  BackLeft.setVelocity(x,percent);
+  BackRight.setVelocity(x,percent);
   Intake.setVelocity(x,percent);
   MobileLift.setPosition(0, degrees);
   MobileLift2.setPosition(0,degrees);
@@ -190,44 +204,10 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  // Motor Velocity Percent 
   setVelocity(100);
-  MobileLift.setVelocity(90, percent);
-  MobileLift2.setVelocity(90, percent);
-  FrontLeft.setVelocity(75,percent);
-  FrontRight.setVelocity(75, percent);
-  BackRight.setVelocity(75, percent);
-  BackLeft.setVelocity(75, percent);
-  //Deploy front lift
-  FrontLift("down", 2);
-  Stop("frontlift");
-  FrontLift("up", 0.06);
-  Stop("frontlift");
-  //Move forward
-  drivefunctions("fwd", 1.73);
-  MobileLift.setVelocity(100, percent);
-  MobileLift2.setVelocity(100, percent);
-  //Stop DriveTrain
-  Stop("drivetrain");
-  //Pick up goal
-  FrontLift("up", 0.7);
-  Stop("frontlift");
+  Drivetrain.driveFor(fwd, 50, inches, 170, rpm, false);
+  Lift.spinFor(565, degrees);
   
-  //Backup to home zone
-  drivefunctions("rev", 0.98);
-  Stop("drivetrain");
-  //Turn left 180
-  drivefunctions("lft", 1);
-  Stop("drivetrain");
-  //Lower goal
-  FrontLift("down", 1);
-  Stop("frontlift");
-  //Back Up
-  drivefunctions ("rev", 0.45);
-  Stop("drivetrain");
-  // ..........................................................................
-  // Insert autonomous user code here.
-  // ..........................................................................
 }
 
 /*---------------------------------------------------------------------------*/
