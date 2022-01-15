@@ -1,3 +1,17 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// FrontLeft            motor         1               
+// FrontRight           motor         2               
+// BackLeft             motor         3               
+// BackRight            motor         4               
+// MobileLift           motor         5               
+// Intake               motor         6               
+// Controller1          controller                    
+// MobileLift2          motor         21              
+// BackLift             motor         8               
+// Drivetrain           drivetrain    7, 9, 10, 11    
+// ---- END VEXCODE CONFIGURED DEVICES ----
            
 // ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
@@ -44,8 +58,7 @@ competition Competition;
 void setVelocity(int x) {
   MobileLift.setVelocity(x,percent);
   MobileLift.setMaxTorque(x,percent);
-  MobileLift2.setVelocity(x,percent);
-  MobileLift2.setMaxTorque(x,percent);
+
   BackLift.setVelocity(x,percent);
   BackLift.setMaxTorque(x,percent);
   //FrontLeft.setVelocity(x,percent);
@@ -54,9 +67,9 @@ void setVelocity(int x) {
   //BackRight.setVelocity(x,percent);
   Intake.setVelocity(x,percent);
   MobileLift.setPosition(0, degrees);
-  MobileLift2.setPosition(0,degrees);
+  
   MobileLift.setPosition(0, turns);
-  MobileLift2.setPosition(0,turns);
+
 }
 void drivefunctions(std::string dir, double x) {
   if (dir == "rev") {
@@ -98,7 +111,7 @@ void Stop (std::string option) {
   }
   if (option == "frontlift") {
     MobileLift.stop();
-    MobileLift2.stop();
+    
   }
   if (option == "backlift") {
     BackLift.stop();
@@ -108,18 +121,7 @@ void Stop (std::string option) {
     Intake.stop();
   }
 }
-void FrontLift (std::string dir, double x) {
-  if (dir == "up") {
-    MobileLift.spin(forward);
-    MobileLift2.spin(forward);
-    wait (x, sec);
-  }
-  if (dir == "down") {
-    MobileLift.spin(reverse);
-    MobileLift2.spin(reverse);
-    wait (x, sec);
-  }
-}
+
 /*
 void TestFrontLift (std::string dir, double x) {
   if (dir == "up") {
@@ -163,8 +165,10 @@ void changedrive () {
   }
 }
 void pre_auton(void) {
-  // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
+  
+  // Initializing Robot Configuration. DO NOT REMOVE!
+  
   //-------------------------------------------------------------------------
   // DRIVE FUNCTIONS : drivefunctions(direction, waittime) [fwd, rev, lft, rht]
   // STOP FUNCTIONS : Stop(option); [drivetrain, frontlift, backlift, intake]
@@ -190,41 +194,20 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  // Motor Velocity Percent 
   setVelocity(100);
-  MobileLift.setVelocity(90, percent);
-  MobileLift2.setVelocity(90, percent);
-  FrontLeft.setVelocity(75,percent);
-  FrontRight.setVelocity(75, percent);
-  BackRight.setVelocity(75, percent);
-  BackLeft.setVelocity(75, percent);
-  //Deploy front lift
-  FrontLift("down", 2);
-  Stop("frontlift");
-  FrontLift("up", 0.06);
-  Stop("frontlift");
-  //Move forward
-  drivefunctions("fwd", 1.73);
-  MobileLift.setVelocity(100, percent);
-  MobileLift2.setVelocity(100, percent);
-  //Stop DriveTrain
-  Stop("drivetrain");
-  //Pick up goal
-  FrontLift("up", 0.7);
-  Stop("frontlift");
+  MobileLift.spinFor(forward, 635, degrees, 100, rpm, false);
+  Drivetrain.driveFor(forward, 55, inches, 200, rpm);
+  MobileLift.spinFor(reverse, 200, degrees, 100, rpm, false);
+  wait(0.3,sec);
+  Drivetrain.driveFor(reverse, 25, inches, 200, rpm);
+  MobileLift.spinFor(forward, 200, degrees, 100, rpm, false);
+  Drivetrain.turnFor(240, degrees, 200, rpm);
   
-  //Backup to home zone
-  drivefunctions("rev", 0.98);
-  Stop("drivetrain");
-  //Turn left 180
-  drivefunctions("lft", 1);
-  Stop("drivetrain");
-  //Lower goal
-  FrontLift("down", 1);
-  Stop("frontlift");
-  //Back Up
-  drivefunctions ("rev", 0.45);
-  Stop("drivetrain");
+ 
+  Drivetrain.driveFor(reverse, 10, inches);
+  
+
+  
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
@@ -241,9 +224,7 @@ void autonomous(void) {
 /*---------------------------------------------------------------------------*/
 bool state = false;
 bool last = false;
-void detectY () {
 
-}
 void usercontrol(void) {
   setVelocity(100);
   // User control code here, inside the loop
@@ -253,18 +234,18 @@ void usercontrol(void) {
     // values based on feedback from the joysticks.
     // Mobile Lift Coding
   if (Controller1.ButtonL1.pressing()) {
-  MobileLift.spin(forward);
-  MobileLift2.spin(forward);
+  MobileLift.spin(reverse);
+
   }
   if (Controller1.ButtonL2.pressing()) {
-  MobileLift.spin(reverse);
-  MobileLift2.spin(reverse);
+  MobileLift.spin(forward);
+
   }
   if (!Controller1.ButtonL1.pressing() && !Controller1.ButtonL2.pressing()) {
   MobileLift.stop();
-  MobileLift2.stop();
+  
   MobileLift.setStopping(hold);
-  MobileLift2.setStopping(hold);
+
   }
  
   if (Controller1.ButtonR1.pressing()) {
@@ -290,10 +271,10 @@ void usercontrol(void) {
  Intake.stop();
  }
  
-  FrontLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
-  FrontRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
-  BackLeft.spin(vex::directionType::rev, Controller1.Axis3.position(), vex::velocityUnits::pct);
-  BackRight.spin(vex::directionType::rev, Controller1.Axis2.position(), vex::velocityUnits::pct);
+  FrontLeft.spin(vex::directionType::fwd, Controller1.Axis3.position(), vex::velocityUnits::pct);
+  FrontRight.spin(vex::directionType::fwd, Controller1.Axis2.position(), vex::velocityUnits::pct);
+  BackLeft.spin(vex::directionType::fwd, Controller1.Axis3.position(), vex::velocityUnits::pct);
+  BackRight.spin(vex::directionType::fwd, Controller1.Axis2.position(), vex::velocityUnits::pct);
    if(Controller1.ButtonY.pressing() && !last) {
       state = !state;
       last = true;
