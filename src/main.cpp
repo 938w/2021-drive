@@ -195,17 +195,11 @@ void pre_auton(void) {
 
 void autonomous(void) {
   setVelocity(100);
-  MobileLift.spinFor(forward, 635, degrees, 100, rpm, false);
-  Drivetrain.driveFor(forward, 55, inches, 200, rpm);
-  MobileLift.spinFor(reverse, 200, degrees, 100, rpm, false);
-  wait(0.3,sec);
-  Drivetrain.driveFor(reverse, 25, inches, 200, rpm);
-  MobileLift.spinFor(forward, 200, degrees, 100, rpm, false);
-  Drivetrain.turnFor(240, degrees, 200, rpm);
-  
- 
-  Drivetrain.driveFor(reverse, 10, inches);
-  
+  BackLift.spinFor(forward, 800, degrees, 100, rpm, false);
+  Drivetrain.driveFor(reverse, 10, inches, 200, rpm);
+  BackLift.spinFor(reverse, 200, degrees, 100, rpm);
+  Drivetrain.turnFor(left, 90, degrees);
+  Drivetrain.driveFor(reverse, 5, inches, 200, rpm);
 
   
   // ..........................................................................
