@@ -39,7 +39,7 @@
 #include "vex.h"
 
 using namespace vex;
-
+using namespace std;
 // A global instance of competition
 competition Competition;
 
@@ -57,15 +57,19 @@ competition Competition;
 
 void setVelocity(int x) {
   MobileLift.setVelocity(x, percent);
-  MobileLift.setMaxTorque(x, percent);
+  MobileLift.setPosition(0, degrees);
+  MobileLift.setPosition(0, turns);
+  BackLift.setVelocity(x, percent);
+  BackLift.setPosition(0, degrees);  
+  BackLift.setPosition(0, turns); 
+}
+void DriveVelocity(int x) {
   FrontLeft.setVelocity(x, percent);
   FrontRight.setVelocity(x, percent);
   BackLeft.setVelocity(x, percent);
-  BackRight.setVelocity(x, percent);
-  MobileLift.setPosition(0, degrees);
-  MobileLift.setPosition(0, turns);
+  BackRight.setVelocity(x, percent); 
 }
-void drivefunctions(std::string dir, double x) {
+/*void drivefunctions(std::string dir, double x) {
   if (dir == "rev") {
     FrontLeft.spin(forward);
     FrontRight.spin(forward);
@@ -116,6 +120,7 @@ void FrontLift(std::string dir, double x) {
     wait(x, sec);
   }
 }
+*/
 /*
 void TestFrontLift (std::string dir, double x) {
   if (dir == "up") {
@@ -172,7 +177,31 @@ void pre_auton(void) {
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void autonomous(void) { setVelocity(100); }
+void autonomous(void) {
+  timer t1;
+  t1.reset();
+  DriveVelocity(100);
+  setVelocity(100); 
+  //Lower Forklift so ring scores
+  MobileLift.spinFor(30, degrees, 100, rpm); 
+  //Back up to set up turn
+  Drivetrain.driveFor(forward, 5, inches); 
+  Drivetrain.stop();
+  /*
+  //Turn right so other alliance goal is pointed to clamp
+  Drivetrain.turnFor(right, 90, degrees, 150, rpm);
+  Drivetrain.stop(); 
+  //Set up next turn to alliance 2
+  Drivetrain.driveFor(forward, 5, inches);
+  Drivetrain.stop(); 
+  //Turn to alliance 2
+  Drivetrain.turnFor(right, 90, degrees, 100, rpm); 
+  Controller1.Screen.newLine();
+  Controller1.Screen.print(t1.time(sec));   
+  */
+
+
+}
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -242,7 +271,7 @@ void usercontrol(void) {
           (Controller1.Axis2.position() < 7) &&
           (Controller1.Axis3.position() > -7) &&
           (Controller1.Axis2.position() > -7)) {
-        Stop("drivetrain");
+        Drivetrain.stop();
         FrontRight.setStopping(hold);
         FrontLeft.setStopping(hold);
         BackRight.setStopping(hold);
@@ -253,7 +282,7 @@ void usercontrol(void) {
           (Controller1.Axis2.position() < 7) &&
           (Controller1.Axis3.position() > -7) &&
           (Controller1.Axis2.position() > -7)) {
-        Stop("drivetrain");
+            Drivetrain.stop();
         FrontRight.setStopping(coast);
         FrontLeft.setStopping(coast);
         BackRight.setStopping(coast);
